@@ -8,19 +8,24 @@ public class GameManager : MonoBehaviour
     public GameObject[] masterPlateList;
     public GameObject[] masterPieceList;
     // these two lists start empty, and are populated at the start of each game, or when they need to be re-populated.
-    List<int> pieceList;
-    List<int> plateList;
+    [HideInInspector] public List<int> pieceList = new List<int>();
+    [HideInInspector] public List<int> plateList = new List<int>();
     //int* nextPiece; // updates as pieces are rendered onto the conveyor belt
     private int piecesToLoad = 100;
     private int platesToLoad = 2;
 
-    // Start is called before the first frame update
-    void Start()
+
+    void makePieces()
     {
-        for (int i=0;i<piecesToLoad;i++)
+        for (int i = 0; i < piecesToLoad; i++)
         {
             pieceList.Add(Random.Range(0, masterPieceList.Length));
         }
+    }
+    // Start is called before the first frame update
+    void Awake()
+    {
+        makePieces();
         for (int i=0;i<platesToLoad;i++)
         {
             int plate = Random.Range(0, masterPlateList.Length);
@@ -35,6 +40,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (pieceList.Count == 0) makePieces();
     }
 }
