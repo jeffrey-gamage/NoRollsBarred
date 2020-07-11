@@ -16,7 +16,6 @@ public class Sushi : MonoBehaviour
     public static Sushi selectedSushi;
     private static Vector3 lastMousePos;
     private SushiCell[] cells;
-    [HideInInspector] public bool moving = false; // is true if it's on the conveyor belt, false otherwise
 
     // Start is called before the first frame update
     void Start()
@@ -40,7 +39,6 @@ public class Sushi : MonoBehaviour
 
     internal void Deselect()
     {
-        moving = true; // TODO: should only be true if it goes back in the conveyor.
         selectedSushi = null;
     }
 
@@ -65,12 +63,6 @@ public class Sushi : MonoBehaviour
 
     internal void RejectMove()
     {
-        if (GameObject.Find("Main Camera").GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition).y < (GameObject.Find("Shutter").transform.position.y)-sceneHeight/2f) {
-            // this is a bit hacky, but it works and doesn't pick up a sushi if it's behind the shutter.
-            selectedSushi = this;
-            moving = false;
-            lastMousePos = Input.mousePosition;
-        }
         snapEnabled = false;
         gameObject.transform.position = defaultLocation.transform.position;
     }
