@@ -21,16 +21,6 @@ public class SushiCell : MonoBehaviour
             }
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.GetComponent<SushiCell>())
-        {
-            if ((!parent.isStationary) && (parent != Sushi.selectedSushi) && collision.GetComponentInParent<Sushi>() != Sushi.selectedSushi)
-            {
-                parent.RejectMove();
-            }
-        }
-    }
 
 
     private void OnMouseDown()

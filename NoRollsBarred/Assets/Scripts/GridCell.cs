@@ -14,17 +14,17 @@ public class GridCell : MonoBehaviour
         Sushi sushiParent = collision.GetComponentInParent<Sushi>();
         if (sushiParent&&sushiParent != Sushi.selectedSushi)
         {
-            if (!sushiInCell)
+            if (!sushiInCell||sushiInCell==collision.GetComponent<SushiCell>())
             {
                 sushiInCell = collision.GetComponent<SushiCell>();
+                sushiParent.SnapToGrid(this);
             }
-            sushiParent.SnapToGrid(this);
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if(sushiInCell)
+        if(sushiInCell&&sushiInCell==other.GetComponent<SushiCell>())
         {
             sushiInCell = null;
         }

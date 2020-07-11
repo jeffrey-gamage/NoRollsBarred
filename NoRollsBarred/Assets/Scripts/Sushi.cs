@@ -9,6 +9,7 @@ public class Sushi : MonoBehaviour
 {
     private InvalidPlacementDefaultLocation defaultLocation;
     public bool isStationary = true;
+    private bool snapEnabled = true;
     private static float sceneWidth;
     private static float sceneHeight;
     private static bool sceneSizeIsInitialized= false;
@@ -44,6 +45,7 @@ public class Sushi : MonoBehaviour
     internal void Select()
     {
         selectedSushi = this;
+        snapEnabled = true;
         foreach(Sushi sushi in FindObjectsOfType<Sushi>())
         {
             sushi.isStationary = true;
@@ -53,7 +55,7 @@ public class Sushi : MonoBehaviour
     }
     internal void SnapToGrid(GridCell gridCell)
     {
-        if (gridCell.sushiInCell == cells[0])
+        if (snapEnabled&&gridCell.sushiInCell == cells[0])
         {
             gameObject.transform.position += gridCell.transform.position - cells[0].transform.position;
         }
@@ -61,6 +63,7 @@ public class Sushi : MonoBehaviour
 
     internal void RejectMove()
     {
+        snapEnabled = false;
         gameObject.transform.position = defaultLocation.transform.position;
     }
 
