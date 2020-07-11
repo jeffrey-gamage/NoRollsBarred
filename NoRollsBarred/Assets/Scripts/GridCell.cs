@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,19 +8,16 @@ public class GridCell : MonoBehaviour
     public SushiCell sushiInCell = null;
     // Start is called before the first frame update
 
-    private void Update()
-    {
-        if(sushiInCell)
-        {
-            Debug.Log("cell occupied");
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if(collision.GetComponent<SushiCell>())
         {
             sushiInCell = collision.GetComponent<SushiCell>();
+            Sushi sushiParent = sushiInCell.GetComponentInParent<Sushi>();
+            if (sushiParent != Sushi.selectedSushi)
+            {
+                sushiParent.SnapToGrid(this);
+            }
         }
     }
 
