@@ -10,12 +10,13 @@ public class GridCell : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.GetComponent<SushiCell>())
+
+        Sushi sushiParent = collision.GetComponentInParent<Sushi>();
+        if (sushiParent&&sushiParent != Sushi.selectedSushi)
         {
-            sushiInCell = collision.GetComponent<SushiCell>();
-            Sushi sushiParent = sushiInCell.GetComponentInParent<Sushi>();
-            if (sushiParent != Sushi.selectedSushi)
+            if (!sushiInCell||sushiInCell==collision.GetComponent<SushiCell>())
             {
+                sushiInCell = collision.GetComponent<SushiCell>();
                 sushiParent.SnapToGrid(this);
             }
         }
@@ -23,7 +24,10 @@ public class GridCell : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        sushiInCell = null;
+        if(sushiInCell&&sushiInCell==other.GetComponent<SushiCell>())
+        {
+            sushiInCell = null;
+        }
     }
 
 }

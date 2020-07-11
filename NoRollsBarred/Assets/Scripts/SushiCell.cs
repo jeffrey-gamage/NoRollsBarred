@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,15 +11,24 @@ public class SushiCell : MonoBehaviour
     {
         parent = GetComponentInParent<Sushi>();
     }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if(collision.GetComponent<SushiCell>())
+        {
+            if ((!parent.isStationary) && (parent != Sushi.selectedSushi) && collision.GetComponentInParent<Sushi>() != Sushi.selectedSushi) 
+            {
+                parent.RejectMove();
+            }
+        }
+    }
+
 
     private void OnMouseDown()
     {
-        Debug.Log("dragging cell");
         parent.Select();
     }
     private void OnMouseUp()
     {
-        Debug.Log("dropping cell");
         parent.Deselect();
     }
 }
