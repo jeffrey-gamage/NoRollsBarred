@@ -12,11 +12,11 @@ public class Grid : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        grid = new GridCell[width][];
-        for(int i = 0; i< width;i++)
+        grid = new GridCell[height][];
+        for(int i = 0; i< height;i++)
         {
-            grid[i] = new GridCell[height];
-            for(int j=0;j<height;j++)
+            grid[i] = new GridCell[width];
+            for(int j=0;j<width;j++)
             {
                 grid[i][j] = Instantiate(gridCellPrefab, 
                     gameObject.transform.position + cellSpacing * (i * Vector3.up + j * Vector3.right),
