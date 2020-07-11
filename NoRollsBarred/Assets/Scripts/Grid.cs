@@ -13,9 +13,9 @@ public class Grid : MonoBehaviour
     void Start()
     {
         grid = new GridCell[width][];
-        for(int i = 0; i< height;i++)
+        for(int i = 0; i< width;i++)
         {
-            grid[i] = new GridCell[width];
+            grid[i] = new GridCell[height];
             for(int j=0;j<height;j++)
             {
                 grid[i][j] = Instantiate(gridCellPrefab, 

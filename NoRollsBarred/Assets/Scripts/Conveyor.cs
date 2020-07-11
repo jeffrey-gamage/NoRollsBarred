@@ -26,6 +26,7 @@ public class Conveyor : MonoBehaviour
         {
             timer = 0f;
             GameObject thing = Instantiate(manager.masterPieceList[manager.pieceList[0][0]], new Vector3(transform.localPosition.x,transform.localPosition.y+4,transform.localPosition.z+1), Quaternion.identity, this.transform);
+            thing.GetComponent<Sushi>().moving = true;
             foreach (Transform child in thing.transform)
             {
                 // change the color of the gridSquare to the appropriate color in pieceList[0][1]
@@ -36,8 +37,10 @@ public class Conveyor : MonoBehaviour
         // move each piece of food on the belt down the belt.
         foreach (Transform child in this.transform)
         {
-            child.Translate(Vector3.down * Time.deltaTime * conveyorSpeed);
-            if (child.localPosition.y < -5) Destroy(child.gameObject);
+            if (child.gameObject.GetComponent<Sushi>().moving) {
+                child.Translate(Vector3.down * Time.deltaTime * conveyorSpeed);
+                if (child.localPosition.y < -5) Destroy(child.gameObject);
+            }
         }
     }
 }

@@ -44,5 +44,9 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         if (pieceList.Count == 0) makePieces();
+        // check if either plate is complete.  If so, remove all grid squares on that half of the board.
+        // if there are no grid squares filled that aren't on the plate, get the "No Spills" bonus
+        // if there's only one color among squares on the plate, get the "Single Color" bonus
+        // 
     }
 }

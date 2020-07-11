@@ -14,6 +14,7 @@ public class Sushi : MonoBehaviour
     public static Sushi selectedSushi;
     private static Vector3 lastMousePos;
     private SushiCell[] cells;
+    [HideInInspector] public bool moving = false; // is true if it's on the conveyor belt, false otherwise
 
     internal void SnapToGrid(GridCell gridCell)
     {
@@ -35,6 +36,7 @@ public class Sushi : MonoBehaviour
 
     internal void Deselect()
     {
+        moving = true; // TODO: should only be true if it goes back in the conveyor.
         selectedSushi = null;
     }
 
@@ -50,6 +52,7 @@ public class Sushi : MonoBehaviour
     internal void Select()
     {
         selectedSushi = this;
+        moving = false;
         lastMousePos = Input.mousePosition;
     }
 
