@@ -16,6 +16,7 @@ public class Sushi : MonoBehaviour
     public static Sushi selectedSushi;
     private static Vector3 lastMousePos;
     private SushiCell[] cells;
+    public bool onConveyor = false;
 
     // Start is called before the first frame update
     void Start()
@@ -46,6 +47,7 @@ public class Sushi : MonoBehaviour
     {
         selectedSushi = this;
         snapEnabled = true;
+        onConveyor = false;
         foreach(Sushi sushi in FindObjectsOfType<Sushi>())
         {
             sushi.isStationary = true;

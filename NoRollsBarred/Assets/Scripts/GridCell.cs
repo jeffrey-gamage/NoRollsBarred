@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class GridCell : MonoBehaviour
 {
+    private Plate myPlate = null;
     public SushiCell sushiInCell = null;
     // Start is called before the first frame update
 
@@ -16,9 +17,18 @@ public class GridCell : MonoBehaviour
         {
             if (!sushiInCell||sushiInCell==collision.GetComponent<SushiCell>())
             {
-                sushiInCell = collision.GetComponent<SushiCell>();
-                sushiParent.SnapToGrid(this);
+                AcceptPlacement(collision, sushiParent);
             }
+        }
+    }
+
+    private void AcceptPlacement(Collider2D collision, Sushi sushiParent)
+    {
+        sushiInCell = collision.GetComponent<SushiCell>();
+        sushiParent.SnapToGrid(this);
+        if (myPlate)
+        {
+            sushiParent.transform.SetParent(myPlate.transform);
         }
     }
 
@@ -30,4 +40,8 @@ public class GridCell : MonoBehaviour
         }
     }
 
+    internal void SetPlate(Plate plate)
+    {
+        myPlate = plate;
+    }
 }

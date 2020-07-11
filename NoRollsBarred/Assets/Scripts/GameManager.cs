@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,21 +22,38 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 0; i < piecesToLoad; i++)
         {
-            List<int> thing = new List<int>(); thing.Add(Random.Range(0, masterPieceList.Length)); thing.Add(Random.Range(0, colors.Count));
+            List<int> thing = new List<int>(); thing.Add(UnityEngine.Random.Range(0, masterPieceList.Length)); thing.Add(UnityEngine.Random.Range(0, colors.Count));
             pieceList.Add(thing);
         }
     }
+
+    internal GameObject GetNextPlate()
+    {
+        if(plateList.Count==0)
+        {
+            PopulatePlateList();
+        }
+        GameObject platePrefab = masterPlateList[plateList[0]];
+        plateList.RemoveAt(0);
+        return platePrefab;
+    }
+
     // Start is called before the first frame update
     void Awake()
     {
         colors.Add(Color.red); colors.Add(Color.blue); colors.Add(Color.yellow);
         makePieces();
-        for (int i=0;i<platesToLoad;i++)
+        PopulatePlateList();
+    }
+
+    private void PopulatePlateList()
+    {
+        for (int i = 0; i < platesToLoad; i++)
         {
-            int plate = Random.Range(0, masterPlateList.Length);
+            int plate = UnityEngine.Random.Range(0, masterPlateList.Length);
             while (plateList.Contains(plate))
             {
-                plate = Random.Range(0, masterPlateList.Length); // this guarantees no repeat plates
+                plate = UnityEngine.Random.Range(0, masterPlateList.Length); // this guarantees no repeat plates
             }
             plateList.Add(plate);
         }
