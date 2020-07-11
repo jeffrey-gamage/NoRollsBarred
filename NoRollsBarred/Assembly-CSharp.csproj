@@ -69,6 +69,8 @@
     <Compile Include="Assets\Scripts\InvalidPlacementDefaultLocation.cs" />
     <Compile Include="Assets\Scripts\Piece.cs" />
     <Compile Include="Assets\Scripts\Plate.cs" />
+    <Compile Include="Assets\Scripts\PlateSpawner.cs" />
+    <Compile Include="Assets\Scripts\Shutter.cs" />
     <Compile Include="Assets\Scripts\Sushi.cs" />
     <Compile Include="Assets\Scripts\SushiCell.cs" />
     <Reference Include="UnityEngine">

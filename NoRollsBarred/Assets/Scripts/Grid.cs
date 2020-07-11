@@ -8,17 +8,17 @@ public class Grid : MonoBehaviour
     [SerializeField] float cellSpacing = 5;
     [SerializeField] int width = 9;
     [SerializeField] int height = 9;
-    private GridCell[][] grid;
+    internal GridCell[][] cells;
     // Start is called before the first frame update
     void Start()
     {
-        grid = new GridCell[height][];
+        cells = new GridCell[height][];
         for(int i = 0; i< height;i++)
         {
-            grid[i] = new GridCell[width];
+            cells[i] = new GridCell[width];
             for(int j=0;j<width;j++)
             {
-                grid[i][j] = Instantiate(gridCellPrefab, 
+                cells[i][j] = Instantiate(gridCellPrefab, 
                     gameObject.transform.position + cellSpacing * (i * Vector3.up + j * Vector3.right),
                     Quaternion.identity).GetComponent<GridCell>();
             }
