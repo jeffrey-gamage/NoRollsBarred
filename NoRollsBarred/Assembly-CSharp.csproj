@@ -62,8 +62,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Conveyor.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Grid.cs" />
     <Compile Include="Assets\Scripts\GridCell.cs" />
+    <Compile Include="Assets\Scripts\InvalidPlacementDefaultLocation.cs" />
+    <Compile Include="Assets\Scripts\Piece.cs" />
+    <Compile Include="Assets\Scripts\Plate.cs" />
     <Compile Include="Assets\Scripts\Sushi.cs" />
     <Compile Include="Assets\Scripts\SushiCell.cs" />
     <Reference Include="UnityEngine">
