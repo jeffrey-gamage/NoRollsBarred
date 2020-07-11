@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2512707225675839327}
   - component: {fileID: 1160241580164081338}
   - component: {fileID: 3783070315270822478}
+  - component: {fileID: 4953208110630080785}
   m_Layer: 0
   m_Name: Piece7
   m_TagString: Untagged
@@ -49,6 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStationary: 1
+  onConveyor: 0
 --- !u!212 &3783070315270822478
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -85,20 +87,46 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -216026719
+  m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: f002dff767c9321419dee3aefdfd37b8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2, y: 3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &4953208110630080785
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2512707225675839325}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.49239096, y: -0.96559787}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 3}
+    newSize: {x: 2, y: 3}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.1151042, y: 3.1662621}
+  m_EdgeRadius: 0
 --- !u!1001 &675630172257728268
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -331,6 +359,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2512707225675839327}
     m_Modifications:
+    - target: {fileID: 885864969445877152, guid: 2a4c0f099918f3349add3efa98f64f8f,
+        type: 3}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3557625797548901442, guid: 2a4c0f099918f3349add3efa98f64f8f,
         type: 3}
       propertyPath: m_Name

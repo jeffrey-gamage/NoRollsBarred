@@ -46,5 +46,5 @@ MonoBehaviour:
   gridCellPrefab: {fileID: 3177913796526520169, guid: 06ae39166d86aa2478746282209491ba,
     type: 3}
   cellSpacing: 1
-  width: 9
+  width: 18
   height: 9

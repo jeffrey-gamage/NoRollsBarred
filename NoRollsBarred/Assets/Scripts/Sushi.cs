@@ -38,6 +38,16 @@ public class Sushi : MonoBehaviour
         }
     }
 
+    private void OnMouseDown()
+    {
+        Select();
+    }
+
+    private void OnMouseUp()
+    {
+        Deselect();
+    }
+
     internal void Deselect()
     {
         selectedSushi = null;

@@ -34,14 +34,14 @@ public class Plate : MonoBehaviour
         OnFill();
     }
 
-    private void OnDestroy()
-    {
-        foreach(GridCell cell in gridCells)
-        {
-            cell.SetPlate(null);
-        }
-        FindObjectOfType<PlateSpawner>().plates.Remove(this);
-    }
+    //private void OnDestroy()
+    //{
+    //    foreach(GridCell cell in gridCells)
+    //    {
+    //        cell.SetPlate(null);
+    //    }
+    //    FindObjectOfType<PlateSpawner>().plates.Remove(this);
+    //}
 
     private void OnFill()
     {
