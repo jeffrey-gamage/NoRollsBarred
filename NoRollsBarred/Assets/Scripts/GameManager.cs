@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     //int* nextPiece; // updates as pieces are rendered onto the conveyor belt
     private int piecesToLoad = 100;
     private int platesToLoad = 2;
+    public float shutterValue = 0.0f; // ranges from 0 to 100.  0 is at shutter pos'n y=20, 100 is y=0 and game over.
 
 
     void makePieces()
@@ -43,6 +44,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        shutterValue += Time.deltaTime;
+        // TODO: game over state if shutterValue>=100
         if (pieceList.Count == 0) makePieces();
         // check if either plate is complete.  If so, remove all grid squares on that half of the board.
         // if there are no grid squares filled that aren't on the plate, get the "No Spills" bonus

@@ -51,9 +51,12 @@ public class Sushi : MonoBehaviour
 
     internal void Select()
     {
-        selectedSushi = this;
-        moving = false;
-        lastMousePos = Input.mousePosition;
+        if (GameObject.Find("Main Camera").GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition).y < (GameObject.Find("Shutter").transform.position.y)-sceneHeight/2f) {
+            // this is a bit hacky, but it works and doesn't pick up a sushi if it's behind the shutter.
+            selectedSushi = this;
+            moving = false;
+            lastMousePos = Input.mousePosition;
+        }
     }
 
     private static void InitializeSceneSize()

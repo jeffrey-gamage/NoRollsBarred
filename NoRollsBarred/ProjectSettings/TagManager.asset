@@ -47,3 +47,6 @@ TagManager:
   - name: Rolls
     uniqueID: 4078940577
     locked: 0
+  - name: Shutter
+    uniqueID: 2097843665
+    locked: 0
