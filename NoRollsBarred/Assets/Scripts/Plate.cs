@@ -5,7 +5,7 @@ using UnityEngine;
 public class Plate : MonoBehaviour
 {
     public Vector2Int rootCoords;
-    [SerializeField] private List<GridCell> gridCells; //serialized for testing
+    private List<GridCell> gridCells;
 
     private void Start()
     {
@@ -34,21 +34,14 @@ public class Plate : MonoBehaviour
         OnFill();
     }
 
-    //private void OnDestroy()
-    //{
-    //    foreach(GridCell cell in gridCells)
-    //    {
-    //        cell.SetPlate(null);
-    //    }
-    //    FindObjectOfType<PlateSpawner>().plates.Remove(this);
-    //}
-
     private void OnFill()
     {
-        //TODO: update score
-        foreach(Sushi sushi in GetComponentsInChildren<Sushi>())
+        //TODO: update score            
+        foreach (GridCell cell in gridCells)
         {
-            Destroy(sushi.gameObject);
+            cell.SetPlate(null);
         }
+        FindObjectOfType<PlateSpawner>().plates.Remove(this);
+        Destroy(gameObject);
     }
 }
