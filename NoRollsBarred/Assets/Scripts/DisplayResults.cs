@@ -11,7 +11,7 @@ public class DisplayResults : MonoBehaviour
     void Start()
     {
         scoreText.text = "score: " + GameResults.instance.score.ToString();
-        levelText.text = "score: " + GameResults.instance.level.ToString();
+        levelText.text = "level: " + GameResults.instance.level.ToString();
         Destroy(GameResults.instance.gameObject);
     }
 
