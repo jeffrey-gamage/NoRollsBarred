@@ -40,7 +40,7 @@ public class Plate : MonoBehaviour
     private void OnFill()
     {
         CalculateScore();
-        manager.shutterValue -= plateValue;
+        manager.SetBackShutter(plateValue);
         ClearPlate();
     }
 

@@ -38,11 +38,17 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Plates
+    uniqueID: 3874092867
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
   - name: Grid
     uniqueID: 2435045287
+    locked: 0
+  - name: Blocks
+    uniqueID: 4049473339
     locked: 0
   - name: Rolls
     uniqueID: 4078940577

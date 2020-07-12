@@ -204,6 +204,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8157655389596961836, guid: 7dd183191873deb4cafc3841904124c7,
         type: 3}
+    - target: {fileID: 5041427286316478936, guid: 80d10bb90edd6cd468fd10c30f46c976,
+        type: 3}
+      propertyPath: accelerationTime
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 5041427286316478937, guid: 80d10bb90edd6cd468fd10c30f46c976,
         type: 3}
       propertyPath: m_LocalPosition.x
