@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     public List<Color> colors;
     //int* nextPiece; // updates as pieces are rendered onto the conveyor belt
     private int piecesToLoad = 100;
-    private int platesToLoad = 2;
+    private int platesToLoad = 9;
     public float shutterValue = 0.0f; // ranges from 0 to 100.  0 is at shutter pos'n y=20, 100 is y=0 and game over.
 
     public float shutterSpeed = 0.6f;
