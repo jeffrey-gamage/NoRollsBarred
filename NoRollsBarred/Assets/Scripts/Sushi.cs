@@ -83,6 +83,7 @@ public class Sushi : MonoBehaviour
         onConveyor = true;
         this.transform.SetParent(FindObjectOfType<Conveyor>().transform);
         gameObject.transform.position = defaultLocation.transform.position;
+        FindObjectOfType<AudioManager>().playSfx(2);
     }
 
     private static void InitializeSceneSize()

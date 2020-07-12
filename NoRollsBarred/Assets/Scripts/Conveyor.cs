@@ -31,7 +31,7 @@ public class Conveyor : MonoBehaviour
             foreach (Transform child in thing.transform)
             {
                 // change the color of the gridSquare to the appropriate color in pieceList[0][1]
-                child.GetComponent<SpriteRenderer>().color = manager.colors[manager.pieceList[0][1]];
+                if (child.name != "Steam") child.GetComponent<SpriteRenderer>().color = manager.colors[manager.pieceList[0][1]];
             }
             manager.pieceList.RemoveAt(0);
         }

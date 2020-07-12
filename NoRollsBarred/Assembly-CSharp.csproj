@@ -65,8 +65,10 @@
     <Compile Include="Assets\Scripts\AudioManager.cs" />
     <Compile Include="Assets\Scripts\ButtonHandler.cs" />
     <Compile Include="Assets\Scripts\Conveyor.cs" />
+    <Compile Include="Assets\Scripts\DisplayResults.cs" />
     <Compile Include="Assets\Scripts\Explosion.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\GameResults.cs" />
     <Compile Include="Assets\Scripts\Grid.cs" />
     <Compile Include="Assets\Scripts\GridCell.cs" />
     <Compile Include="Assets\Scripts\InvalidPlacementDefaultLocation.cs" />
@@ -79,6 +81,7 @@
     <Compile Include="Assets\Scripts\SushiCell.cs" />
     <Compile Include="Assets\Scripts\UIUpdater.cs" />
     <Compile Include="Assets\Scripts\startupLoader.cs" />
+    <None Include="Assets\Font\ninja_naruto\readme.txt" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

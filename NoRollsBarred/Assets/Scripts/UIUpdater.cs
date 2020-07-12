@@ -7,7 +7,7 @@ public class UIUpdater : MonoBehaviour
 {
     GameManager manager;
     private float timer;
-    private float messageHangTime = 7f;
+    private float messageHangTime = 2f;
     // Start is called before the first frame update
     public void PieceDestroyed()
     {

@@ -58,7 +58,7 @@ public class Plate : MonoBehaviour
     {
         CalculateScore();
         manager.SetBackShutter(plateValue);
-        manager.score += plateValue;
+        manager.score += (int) plateValue;
         ClearPlate();
         GameObject.Find("AudioManager").GetComponent<AudioManager>().playSfx(1);
     }

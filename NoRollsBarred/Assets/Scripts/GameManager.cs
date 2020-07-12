@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     public float shutterValue = 0.0f; // ranges from 0 to 100.  0 is at shutter pos'n y=20, 100 is y=0 and game over.
     
     [HideInInspector] public float level;
-    [HideInInspector] public float score;
+    [HideInInspector] public int score;
     [HideInInspector] private float levelTimer;
     public GameObject explosion;
 
@@ -37,8 +37,8 @@ public class GameManager : MonoBehaviour
         if (shutterValue > 0)
         {
             //calibrate shutter movement to current position of shutter, current shutter speed. Don't let it go negative
-            float shutterMovement = plateValue*(shutterValue/100f)* Mathf.Sqrt(level*0.1f);
-            shutterValue = Mathf.Max(shutterValue - shutterMovement);
+            float shutterMovement = plateValue*(shutterValue/100f)* Mathf.Sqrt(level*0.25f);
+            shutterValue = Mathf.Max(shutterValue - shutterMovement,0);
         }
     }
 
@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
         colors.Add(Color.red); colors.Add(Color.blue); colors.Add(Color.yellow);
         makePieces();
         PopulatePlateList();
-        level = 5f; score = 0f;
+        level = 1f; score = 0;
         //GameObject.Find("AudioManager").GetComponent<AudioManager>().playMusic(1);
     }
 
@@ -83,9 +83,8 @@ public class GameManager : MonoBehaviour
         {
             GameOver();
         }
-        shutterValue += Time.deltaTime * (level*0.1f); // if the game is going too fast, adjust this 1 to something lower
-        levelTimer += Time.deltaTime;
-        if (levelTimer>=10) { level += 1; levelTimer = 0; } // every 10 seconds, level increments
+        shutterValue += Time.deltaTime * ((level+1)*0.25f); // if the game is going too fast, adjust this 1 to something lower
+        level = score / 50+1; // every 50 points, level increments
         if (pieceList.Count == 0) makePieces();
 
     }
