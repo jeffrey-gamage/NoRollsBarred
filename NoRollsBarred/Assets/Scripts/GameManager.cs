@@ -16,10 +16,11 @@ public class GameManager : MonoBehaviour
     private int piecesToLoad = 100;
     private int platesToLoad = 9;
     public float shutterValue = 0.0f; // ranges from 0 to 100.  0 is at shutter pos'n y=20, 100 is y=0 and game over.
-
-    public float shutterSpeed = 0.6f;
-    [SerializeField] float accelerationRate = 0.01f;
-
+    
+    [HideInInspector] public float level;
+    [HideInInspector] public float score;
+    [HideInInspector] private float levelTimer;
+    public GameObject explosion;
 
     void makePieces()
     {
@@ -35,7 +36,7 @@ public class GameManager : MonoBehaviour
         if (shutterValue > 0)
         {
             //calibrate shutter movement to current position of shutter, current shutter speed. Don't let it go negative
-            float shutterMovement = plateValue*(shutterValue/100f)* Mathf.Sqrt(shutterSpeed);
+            float shutterMovement = plateValue*(shutterValue/100f)* Mathf.Sqrt(level*0.1f);
             shutterValue = Mathf.Max(shutterValue - shutterMovement);
         }
     }
@@ -57,6 +58,7 @@ public class GameManager : MonoBehaviour
         colors.Add(Color.red); colors.Add(Color.blue); colors.Add(Color.yellow);
         makePieces();
         PopulatePlateList();
+        level = 5f; score = 0f;
     }
 
     private void PopulatePlateList()
@@ -75,27 +77,20 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        HandleShutterAcceleration();
-        shutterValue += Time.deltaTime*shutterSpeed;
         if(shutterValue>=100f)
         {
             GameOver();
         }
+        shutterValue += Time.deltaTime * (level*0.1f); // if the game is going too fast, adjust this 1 to something lower
+        levelTimer += Time.deltaTime;
+        if (levelTimer>=10) { level += 1; levelTimer = 0; } // every 10 seconds, level increments
         if (pieceList.Count == 0) makePieces();
-        // check if either plate is complete.  If so, remove all grid squares on that half of the board.
-        // if there are no grid squares filled that aren't on the plate, get the "No Spills" bonus
-        // if there's only one color among squares on the plate, get the "Single Color" bonus
-        // 
+
     }
 
     private void GameOver()
     {
         //TODO: go to game over scene
         Debug.Log("Game over!");
-    }
-
-    private void HandleShutterAcceleration()
-    {
-        shutterSpeed += accelerationRate * Time.deltaTime;
     }
 }

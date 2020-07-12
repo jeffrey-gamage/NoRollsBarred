@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class Plate : MonoBehaviour
 {
-    private float plateValue = 10f; private float sameColorMulti = 2.5f; private float noSpillMulti = 3f;
+    private float plateValue = 25f; private float sameColorMulti = 2f; private float noSpillMulti = 2f;
     public Vector2Int rootCoords;
     private List<GridCell> gridCells;
     [HideInInspector] GameManager manager;
+    [HideInInspector] private float kaboomTimer;
 
     private void Start()
     {
+        kaboomTimer = Random.Range(60f, 180f);
         manager = GameObject.Find("GameManager").GetComponent("GameManager") as GameManager;
         Grid grid = FindObjectOfType<Grid>();
         gridCells = new List<GridCell>();
@@ -25,8 +27,23 @@ public class Plate : MonoBehaviour
         }
     }
 
+    private void DestroyPiece()
+    {
+        // choose a random piece that's a child of this, spawn an explosion there, and destroy it.
+        kaboomTimer = Random.Range(60f, 180f);
+        GameObject piece = this.transform.GetChild(Random.Range(gridCells.Count, this.transform.childCount)).gameObject;
+        if (piece != null) {
+            Instantiate(manager.explosion, piece.transform.position, Quaternion.identity, this.transform);
+            GameObject.Find("AudioManager").GetComponent<AudioManager>().playSfx(0);
+            Destroy(piece);
+        }
+
+    }
+
     private void Update()
     {
+        kaboomTimer -= Time.deltaTime;
+        if (kaboomTimer < 0) DestroyPiece();
         foreach(GridCell cell in gridCells)
         {
             if(!cell.sushiInCell)
@@ -41,6 +58,7 @@ public class Plate : MonoBehaviour
     {
         CalculateScore();
         manager.SetBackShutter(plateValue);
+        manager.score += plateValue;
         ClearPlate();
     }
 
@@ -73,7 +91,10 @@ public class Plate : MonoBehaviour
                 {
                     for (int j = 0; j < grid.GetWidth() && noSpill; j++)
                     {
-                        if (grid.cells[i][j].sushiInCell == sushi && !gridCells.Contains(grid.cells[i][j])) noSpill = false;
+                        foreach (SushiCell cell in GetComponentsInChildren<SushiCell>())
+                        {
+                            if (grid.cells[i][j].sushiInCell == cell && !gridCells.Contains(grid.cells[i][j])) noSpill = false;
+                        }
                     }
                 }
                 break;
@@ -82,5 +103,8 @@ public class Plate : MonoBehaviour
         float toAdd = plateValue;
         if (noSpill) plateValue *= noSpillMulti;
         if ((hasColor[0] == false && hasColor[1] == false) || (hasColor[0] == false && hasColor[2] == false) || (hasColor[1] == false && hasColor[2] == false)) plateValue *= sameColorMulti;
+        //UIUpdater canvas = GameObject.Find("Canvas").GetComponent(typeof(UIUpdater)) as UIUpdater;
+        //canvas.PlatePassed((hasColor[0] == false && hasColor[1] == false) || (hasColor[0] == false && hasColor[2] == false) || (hasColor[1] == false && hasColor[2] == false), noSpill);
+
     }
 }

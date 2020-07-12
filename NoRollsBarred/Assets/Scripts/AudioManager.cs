@@ -12,7 +12,7 @@ public class AudioManager : MonoBehaviour
     private AudioSource musicPlayer;
     private AudioSource sfxPlayer;
 
-    void playSfx(int i)
+    public void playSfx(int i)
     {
         // play the AudioClip at sfx[i]
         sfxPlayer.clip = sfx[i];
@@ -24,7 +24,7 @@ public class AudioManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         else
         {
