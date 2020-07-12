@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5389999532597013416}
   - component: {fileID: 3749142362425204071}
   - component: {fileID: 5237882641916348372}
+  - component: {fileID: 3608550902241148596}
   m_Layer: 0
   m_Name: Piece13
   m_TagString: Untagged
@@ -49,7 +50,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isStationary: 1
   onConveyor: 0
+<<<<<<< HEAD
   col: {r: 0, g: 0, b: 0, a: 0}
+=======
+>>>>>>> Colliders
 --- !u!212 &5237882641916348372
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -88,8 +92,13 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -216026719
   m_SortingLayer: 2
+<<<<<<< HEAD
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: e61f2759156776245aab45db08ca5b41, type: 3}
+=======
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 0}
+>>>>>>> Colliders
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,6 +109,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &3608550902241148596
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5389999532597013418}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3, y: 1}
+  m_EdgeRadius: 0
 --- !u!1001 &2144597713427414139
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -107,6 +142,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5389999532597013416}
     m_Modifications:
+    - target: {fileID: 885864969445877152, guid: 2a4c0f099918f3349add3efa98f64f8f,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 885864969445877152, guid: 2a4c0f099918f3349add3efa98f64f8f,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3557625797548901442, guid: 2a4c0f099918f3349add3efa98f64f8f,
         type: 3}
       propertyPath: m_Name
@@ -182,6 +227,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5389999532597013416}
     m_Modifications:
+    - target: {fileID: 885864969445877152, guid: 2a4c0f099918f3349add3efa98f64f8f,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 885864969445877152, guid: 2a4c0f099918f3349add3efa98f64f8f,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3557625797548901442, guid: 2a4c0f099918f3349add3efa98f64f8f,
         type: 3}
       propertyPath: m_Name
@@ -257,6 +312,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5389999532597013416}
     m_Modifications:
+    - target: {fileID: 885864969445877152, guid: 2a4c0f099918f3349add3efa98f64f8f,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 885864969445877152, guid: 2a4c0f099918f3349add3efa98f64f8f,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3557625797548901442, guid: 2a4c0f099918f3349add3efa98f64f8f,
         type: 3}
       propertyPath: m_Name

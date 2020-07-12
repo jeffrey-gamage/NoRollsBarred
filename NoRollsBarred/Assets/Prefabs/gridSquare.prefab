@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3960809996538478295}
   - component: {fileID: 4010634855872132566}
   - component: {fileID: 9119471333875915932}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: gridSquare
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0043545216, y: -0.002177298}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -108,7 +108,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.95, y: 0.95}
+  m_Size: {x: 0.7496916, y: 0.7453373}
   m_EdgeRadius: 0
 --- !u!114 &4010634855872132566
 MonoBehaviour:
