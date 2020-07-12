@@ -50,6 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStationary: 1
+  onConveyor: 0
 --- !u!212 &7726639338475219356
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -120,7 +121,7 @@ PrefabInstance:
     - target: {fileID: 4008474115010861444, guid: 2a4c0f099918f3349add3efa98f64f8f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4008474115010861444, guid: 2a4c0f099918f3349add3efa98f64f8f,
         type: 3}
@@ -195,7 +196,7 @@ PrefabInstance:
     - target: {fileID: 4008474115010861444, guid: 2a4c0f099918f3349add3efa98f64f8f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4008474115010861444, guid: 2a4c0f099918f3349add3efa98f64f8f,
         type: 3}
@@ -270,7 +271,7 @@ PrefabInstance:
     - target: {fileID: 4008474115010861444, guid: 2a4c0f099918f3349add3efa98f64f8f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4008474115010861444, guid: 2a4c0f099918f3349add3efa98f64f8f,
         type: 3}
@@ -345,7 +346,7 @@ PrefabInstance:
     - target: {fileID: 4008474115010861444, guid: 2a4c0f099918f3349add3efa98f64f8f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4008474115010861444, guid: 2a4c0f099918f3349add3efa98f64f8f,
         type: 3}
@@ -420,7 +421,7 @@ PrefabInstance:
     - target: {fileID: 4008474115010861444, guid: 2a4c0f099918f3349add3efa98f64f8f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4008474115010861444, guid: 2a4c0f099918f3349add3efa98f64f8f,
         type: 3}

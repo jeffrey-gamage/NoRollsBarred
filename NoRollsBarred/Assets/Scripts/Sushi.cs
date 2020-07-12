@@ -17,7 +17,7 @@ public class Sushi : MonoBehaviour
     private static Vector3 lastMousePos;
     private SushiCell[] cells;
     public bool onConveyor = false;
-
+    public Color col;
     // Start is called before the first frame update
     void Start()
     {
