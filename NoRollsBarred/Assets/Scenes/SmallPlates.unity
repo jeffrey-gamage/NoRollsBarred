@@ -410,7 +410,7 @@ PrefabInstance:
     - target: {fileID: 1998909377081745467, guid: 828fbf9753b348a4fb8472565d08da7e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3
+      value: -4.05
       objectReference: {fileID: 0}
     - target: {fileID: 1998909377081745467, guid: 828fbf9753b348a4fb8472565d08da7e,
         type: 3}
@@ -1371,6 +1371,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Shutter
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498299135795146042, guid: c58d0c5eed37189459c99ea0200db3ab,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6498299135795146180, guid: c58d0c5eed37189459c99ea0200db3ab,
         type: 3}
