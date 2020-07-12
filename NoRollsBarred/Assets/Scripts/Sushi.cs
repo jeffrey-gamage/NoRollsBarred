@@ -77,6 +77,8 @@ public class Sushi : MonoBehaviour
     internal void RejectMove()
     {
         snapEnabled = false;
+        onConveyor = true;
+        this.transform.SetParent(FindObjectOfType<Conveyor>().transform);
         gameObject.transform.position = defaultLocation.transform.position;
     }
 
