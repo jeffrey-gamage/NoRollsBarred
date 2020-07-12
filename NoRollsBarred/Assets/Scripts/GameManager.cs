@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour
     private int platesToLoad = 2;
     public float shutterValue = 0.0f; // ranges from 0 to 100.  0 is at shutter pos'n y=20, 100 is y=0 and game over.
 
+    [HideInInspector] public float level;
+    [HideInInspector] public float score;
+    [HideInInspector] private float levelTimer;
 
     void makePieces()
     {
@@ -44,6 +47,7 @@ public class GameManager : MonoBehaviour
         colors.Add(Color.red); colors.Add(Color.blue); colors.Add(Color.yellow);
         makePieces();
         PopulatePlateList();
+        level = 0f; score = 0f;
     }
 
     private void PopulatePlateList()
@@ -62,12 +66,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        shutterValue += Time.deltaTime;
+        shutterValue += Time.deltaTime * (level*0.1f); // if the game is going too fast, adjust this 1 to something lower
+        levelTimer += Time.deltaTime;
+        if (levelTimer>=10) { level += 1; levelTimer = 0; } // every 10 seconds, level increments
         // TODO: game over state if shutterValue>=100
         if (pieceList.Count == 0) makePieces();
-        // check if either plate is complete.  If so, remove all grid squares on that half of the board.
-        // if there are no grid squares filled that aren't on the plate, get the "No Spills" bonus
-        // if there's only one color among squares on the plate, get the "Single Color" bonus
-        // 
+
     }
 }

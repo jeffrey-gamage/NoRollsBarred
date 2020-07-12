@@ -54,7 +54,10 @@ public class Plate : MonoBehaviour
                 {
                     for (int j = 0; j < grid.GetWidth() && noSpill; j++)
                     {
-                        if (grid.cells[i][j].sushiInCell == sushi && !gridCells.Contains(grid.cells[i][j])) noSpill = false;
+                        foreach (SushiCell cell in GetComponentsInChildren<SushiCell>())
+                        {
+                            if (grid.cells[i][j].sushiInCell == cell && !gridCells.Contains(grid.cells[i][j])) noSpill = false;
+                        }
                     }
                 }
                 break;
@@ -64,7 +67,8 @@ public class Plate : MonoBehaviour
         if (noSpill) plateValue *= noSpillMulti;
         if ((hasColor[0] == false && hasColor[1] == false) || (hasColor[0] == false && hasColor[2] == false) || (hasColor[1] == false && hasColor[2] == false)) plateValue *= sameColorMulti;
         manager.shutterValue -= plateValue;
-        foreach(Sushi sushi in GetComponentsInChildren<Sushi>())
+        manager.score += plateValue;
+        foreach(GridCell cell in gridCells)
         {
             cell.SetPlate(null);
         }

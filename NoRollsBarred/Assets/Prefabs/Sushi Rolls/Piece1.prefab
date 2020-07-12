@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8783433314934026118}
   - component: {fileID: 3193671529628412572}
   - component: {fileID: 2490634462331286418}
-  - component: {fileID: -442125315972138884}
+  - component: {fileID: 4724873034094050237}
   m_Layer: 0
   m_Name: Piece1
   m_TagString: Untagged
@@ -50,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isStationary: 1
   onConveyor: 0
+  col: {r: 0, g: 0, b: 0, a: 0}
 --- !u!212 &2490634462331286418
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -100,25 +101,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &-442125315972138884
-Animator:
-  serializedVersion: 3
+--- !u!61 &4724873034094050237
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8783433314934026116}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 1}
+    newSize: {x: 2, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2, y: 1}
+  m_EdgeRadius: 0
 --- !u!1001 &449450592710719978
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -275,6 +283,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Steam
+      objectReference: {fileID: 0}
+    - target: {fileID: 5276211547351755815, guid: b485449cdbb39114797eba6ccbf3af74,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b485449cdbb39114797eba6ccbf3af74, type: 3}

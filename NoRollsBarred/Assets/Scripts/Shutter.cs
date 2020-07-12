@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Shutter : MonoBehaviour
 {
-    private float shutterSpeed = 1f;
     GameManager manager;
     GameObject conveyor;
     float bottomY;

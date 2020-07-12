@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5276211547351755812}
   - component: {fileID: 5276211547351755813}
   - component: {fileID: 5276211547351755814}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Steam
   m_TagString: Untagged
   m_Icon: {fileID: 0}

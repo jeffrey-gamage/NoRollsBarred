@@ -67,6 +67,7 @@
      <Compile Include="Assets\Scripts\Shutter.cs" />
      <Compile Include="Assets\Scripts\Sushi.cs" />
      <Compile Include="Assets\Scripts\SushiCell.cs" />
+     <Compile Include="Assets\Scripts\UIUpdater.cs" />
  <Reference Include="UnityEngine">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>
