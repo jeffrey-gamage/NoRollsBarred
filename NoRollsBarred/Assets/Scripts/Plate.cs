@@ -39,6 +39,23 @@ public class Plate : MonoBehaviour
 
     private void OnFill()
     {
+        CalculateScore();
+        manager.shutterValue -= plateValue;
+        ClearPlate();
+    }
+
+    private void ClearPlate()
+    {
+        foreach (GridCell cell in gridCells)
+        {
+            cell.SetPlate(null);
+        }
+        FindObjectOfType<PlateSpawner>().plates.Remove(this);
+        Destroy(gameObject);
+    }
+
+    private void CalculateScore()
+    {
         bool[] hasColor = new bool[3]; // this'll break if we add more than 3 colors.
         hasColor[0] = false; hasColor[1] = false; hasColor[2] = false;
         bool noSpill = true;
@@ -65,13 +82,5 @@ public class Plate : MonoBehaviour
         float toAdd = plateValue;
         if (noSpill) plateValue *= noSpillMulti;
         if ((hasColor[0] == false && hasColor[1] == false) || (hasColor[0] == false && hasColor[2] == false) || (hasColor[1] == false && hasColor[2] == false)) plateValue *= sameColorMulti;
-        manager.shutterValue -= plateValue;
-
-        foreach (GridCell cell in gridCells)
-        {
-            cell.SetPlate(null);
-        }
-        FindObjectOfType<PlateSpawner>().plates.Remove(this);
-        Destroy(gameObject);
     }
 }

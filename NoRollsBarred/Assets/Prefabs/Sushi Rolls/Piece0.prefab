@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isStationary: 1
   onConveyor: 0
+  col: {r: 0, g: 0, b: 0, a: 0}
 --- !u!212 &360741320778694543
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -85,7 +86,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -216026719
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 73d0771413bad40428f57298ed0c2874, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -131,6 +132,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5539094638189409950}
     m_Modifications:
+    - target: {fileID: 885864969445877152, guid: 2a4c0f099918f3349add3efa98f64f8f,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -245493957
+      objectReference: {fileID: 0}
+    - target: {fileID: 885864969445877152, guid: 2a4c0f099918f3349add3efa98f64f8f,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3557625797548901442, guid: 2a4c0f099918f3349add3efa98f64f8f,
         type: 3}
       propertyPath: m_Name
