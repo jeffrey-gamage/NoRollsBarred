@@ -38,6 +38,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 2510284559
+    locked: 0
   - name: Plates
     uniqueID: 3874092867
     locked: 0
