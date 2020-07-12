@@ -41,7 +41,9 @@ public class Sushi : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Select();
+        if (GameObject.Find("Main Camera").GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition).x > GameObject.Find("Shutter").transform.GetComponent<Renderer>().bounds.size.x/2f+GameObject.Find("Shutter").transform.position.x || GameObject.Find("Main Camera").GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition).y < GameObject.Find("Shutter").transform.GetComponent<Renderer>().bounds.size.y/2f+ GameObject.Find("Shutter").transform.position.y) {
+            Select();
+        }
     }
 
     private void OnMouseUp()
@@ -80,6 +82,8 @@ public class Sushi : MonoBehaviour
         onConveyor = true;
         this.transform.SetParent(FindObjectOfType<Conveyor>().transform);
         gameObject.transform.position = defaultLocation.transform.position;
+        //GameObject.Find("AudioManager").GetComponent<AudioManager>().playSfx(2);
+        // can't do this, when two pieces overlap on the conveyor it plays this noise constantly
     }
 
     private static void InitializeSceneSize()

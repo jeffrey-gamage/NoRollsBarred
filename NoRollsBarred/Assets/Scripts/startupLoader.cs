@@ -11,10 +11,4 @@ public class startupLoader : MonoBehaviour
         panel = this.transform.GetChild(3).gameObject;
         panel.SetActive(false);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

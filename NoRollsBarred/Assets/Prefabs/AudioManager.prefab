@@ -173,10 +173,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicList:
-  - {fileID: 8300000, guid: 367e93bf1ba6e614abe78a9c9c189e9b, type: 3}
-  - {fileID: 8300000, guid: 793b0e9dc524f3647b55dc42d3f74593, type: 3}
-  - {fileID: 8300000, guid: 19e9d0461427aaa4db32166b44f9692a, type: 3}
-  sfx: []
+  - {fileID: 8300000, guid: f6a2b55363835744aabd432ca8030862, type: 3}
+  - {fileID: 8300000, guid: 9e5a49de7f622de46bfcf2d084e767f8, type: 3}
+  sfx:
+  - {fileID: 8300000, guid: 90ef4cfcfe29ede4fb8fd4e611107cbe, type: 3}
+  - {fileID: 8300000, guid: 0d373fb39022cfb4ea5a5d899a7b4e6b, type: 3}
+  - {fileID: 8300000, guid: 89dd4442daf7c0140a83e865937b98e9, type: 3}
 --- !u!1 &8440666683747243996
 GameObject:
   m_ObjectHideFlags: 0

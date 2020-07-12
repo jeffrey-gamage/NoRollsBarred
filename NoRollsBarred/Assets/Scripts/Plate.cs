@@ -36,8 +36,8 @@ public class Plate : MonoBehaviour
             Instantiate(manager.explosion, piece.transform.position, Quaternion.identity, this.transform);
             GameObject.Find("AudioManager").GetComponent<AudioManager>().playSfx(0);
             Destroy(piece);
+            GameObject.Find("Canvas").GetComponent<UIUpdater>().PieceDestroyed();
         }
-
     }
 
     private void Update()
@@ -60,6 +60,7 @@ public class Plate : MonoBehaviour
         manager.SetBackShutter(plateValue);
         manager.score += plateValue;
         ClearPlate();
+        GameObject.Find("AudioManager").GetComponent<AudioManager>().playSfx(1);
     }
 
     private void ClearPlate()
@@ -103,8 +104,8 @@ public class Plate : MonoBehaviour
         float toAdd = plateValue;
         if (noSpill) plateValue *= noSpillMulti;
         if ((hasColor[0] == false && hasColor[1] == false) || (hasColor[0] == false && hasColor[2] == false) || (hasColor[1] == false && hasColor[2] == false)) plateValue *= sameColorMulti;
-        //UIUpdater canvas = GameObject.Find("Canvas").GetComponent(typeof(UIUpdater)) as UIUpdater;
-        //canvas.PlatePassed((hasColor[0] == false && hasColor[1] == false) || (hasColor[0] == false && hasColor[2] == false) || (hasColor[1] == false && hasColor[2] == false), noSpill);
+        UIUpdater canvas = GameObject.Find("Canvas").GetComponent(typeof(UIUpdater)) as UIUpdater;
+        canvas.PlatePassed((hasColor[0] == false && hasColor[1] == false) || (hasColor[0] == false && hasColor[2] == false) || (hasColor[1] == false && hasColor[2] == false), noSpill);
 
     }
 }

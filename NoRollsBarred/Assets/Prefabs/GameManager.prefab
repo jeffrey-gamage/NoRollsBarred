@@ -54,12 +54,16 @@ MonoBehaviour:
   - {fileID: 801803641943486247, guid: ab6f905b28b592445bac4681a4ae250f, type: 3}
   - {fileID: 2406412549031735471, guid: 66ac2fa59b921dc41a1450f2f6c928b0, type: 3}
   - {fileID: 7594386444058118882, guid: 2132dade12ed05946bde6b911c06bbaf, type: 3}
-  - {fileID: 2512707225675839325, guid: 250c0200b5d10f0429019d284ecfb8b3, type: 3}
-  - {fileID: 8173207300213993561, guid: 9d3217c6f936ed8408165bfe06d63964, type: 3}
   - {fileID: 6184194507068554048, guid: 8954578a36d77cf45acec88b7d9d7d68, type: 3}
   - {fileID: 8157655389596961836, guid: 7dd183191873deb4cafc3841904124c7, type: 3}
-  - {fileID: 2349117993981515817, guid: 02af04c971957304691e00c4599d563f, type: 3}
-  - {fileID: 9054009969108246211, guid: f2181c9413378474ea83fda9594e4177, type: 3}
   - {fileID: 5389999532597013418, guid: 33cc9df2777eb8a4ebbf8360b0134f6a, type: 3}
-  - {fileID: 7121259865397632843, guid: d732591ca99470c4a969189472c7aaef, type: 3}
   - {fileID: 271967652503710131, guid: f26f2d20392f99b4e84391e6daa54ccf, type: 3}
+  - {fileID: 6657060525817301133, guid: 09d7abcfb464e0a4798dd7c29edf8ab6, type: 3}
+  - {fileID: 2349117993981515817, guid: f54217ebe9cf41447a9f64b6eb9c6b09, type: 3}
+  plateList: 
+  colors: []
+  shutterValue: 0
+  level: 0
+  score: 0
+  explosion: {fileID: 1180114914699108940, guid: d5fb890066e3f2d45ace4956bd57acdb,
+    type: 3}

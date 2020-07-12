@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -12,6 +13,11 @@ public class AudioManager : MonoBehaviour
     private AudioSource musicPlayer;
     private AudioSource sfxPlayer;
 
+    public void playMusic(int i)
+    {
+        musicPlayer.clip = musicList[i];
+        musicPlayer.Play();
+    }
     public void playSfx(int i)
     {
         // play the AudioClip at sfx[i]
@@ -24,7 +30,7 @@ public class AudioManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            //DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -38,9 +44,14 @@ public class AudioManager : MonoBehaviour
     void Update()
     {
         // check which music should be playing, and play it if it's not playing
+        if (SceneManager.GetActiveScene().name == "GameOver") musicPlayer.volume = 0.25f;
+        else musicPlayer.volume = 1f;
         if (!musicPlayer.isPlaying)
         {
-            musicPlayer.clip = musicList[1];
+            string name = SceneManager.GetActiveScene().name;
+            if (name == "StartupScreen") musicPlayer.clip = musicList[0];
+            else if (name == "smallTables") { musicPlayer.clip = musicList[1]; musicPlayer.volume = 1f; }
+            else if (name == "GameOver") { musicPlayer.clip = musicList[1]; musicPlayer.volume = 0.25f; }
             musicPlayer.Play();
         }
         // sfx aren't played here, they're called in a separate function from GameManager

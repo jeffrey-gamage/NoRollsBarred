@@ -9,7 +9,8 @@ public class ButtonHandler : MonoBehaviour
     public void StartGame()
     {
         // load the Game scene, or whichever scene we're using.
-        SceneManager.LoadScene("Game");
+        GameObject.Find("AudioManager").GetComponent<AudioManager>().playMusic(1);
+        SceneManager.LoadScene("SmallPlates");
     }
 
     public void ShowInstructions()
@@ -22,6 +23,10 @@ public class ButtonHandler : MonoBehaviour
         startupLoader s = GameObject.Find("Canvas").GetComponent(typeof(startupLoader)) as startupLoader;
         s.panel.SetActive(false);
     }
+    public void Restart()
+    {
 
+        SceneManager.LoadScene("smallPlates");
+    }
 
 }
