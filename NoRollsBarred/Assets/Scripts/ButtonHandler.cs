@@ -22,6 +22,8 @@ public class ButtonHandler : MonoBehaviour
         startupLoader s = GameObject.Find("Canvas").GetComponent(typeof(startupLoader)) as startupLoader;
         s.panel.SetActive(false);
     }
-
-
+    public void Restart()
+    {
+        SceneManager.LoadScene("StartupScreen");
+    }
 }

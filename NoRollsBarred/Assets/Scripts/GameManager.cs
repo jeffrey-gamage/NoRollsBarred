@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -90,7 +91,7 @@ public class GameManager : MonoBehaviour
 
     private void GameOver()
     {
-        //TODO: go to game over scene
+        SceneManager.LoadScene("GameOver");
         Debug.Log("Game over!");
     }
 

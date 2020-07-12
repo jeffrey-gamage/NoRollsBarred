@@ -44,7 +44,7 @@ public class UIUpdater : MonoBehaviour
             this.transform.GetChild(4).GetComponent<Text>().enabled = false;
             this.transform.GetChild(5).GetComponent<Text>().enabled = false;
         }
-        this.transform.GetChild(0).GetComponent<Text>().text = "Level: " + manager.level.ToString();
-        this.transform.GetChild(1).GetComponent<Text>().text = "Score: " + manager.score.ToString();
+        //this.transform.GetChild(0).GetComponent<Text>().text = "Level: " + manager.level.ToString();
+        //this.transform.GetChild(1).GetComponent<Text>().text = "Score: " + manager.score.ToString();
     }
 }
