@@ -9,6 +9,12 @@ public class UIUpdater : MonoBehaviour
     private float timer;
     private float messageHangTime = 10f;
     // Start is called before the first frame update
+    public void PieceDestroyed()
+    {
+        this.transform.GetChild(5).GetComponent<Text>().enabled = true;
+        timer = messageHangTime;
+
+    }
     public void PlatePassed(bool color, bool spill)
     {
         this.transform.GetChild(2).GetComponent<Text>().enabled = true;
@@ -23,6 +29,7 @@ public class UIUpdater : MonoBehaviour
         this.transform.GetChild(2).GetComponent<Text>().enabled = false;
         this.transform.GetChild(3).GetComponent<Text>().enabled = false;
         this.transform.GetChild(4).GetComponent<Text>().enabled = false;
+        this.transform.GetChild(5).GetComponent<Text>().enabled = false;
         manager = FindObjectOfType<GameManager>().GetComponent("GameManager") as GameManager;
     }
 
@@ -35,6 +42,7 @@ public class UIUpdater : MonoBehaviour
             this.transform.GetChild(2).GetComponent<Text>().enabled = false;
             this.transform.GetChild(3).GetComponent<Text>().enabled = false;
             this.transform.GetChild(4).GetComponent<Text>().enabled = false;
+            this.transform.GetChild(5).GetComponent<Text>().enabled = false;
         }
         this.transform.GetChild(0).GetComponent<Text>().text = "Level: " + manager.level.ToString();
         this.transform.GetChild(1).GetComponent<Text>().text = "Score: " + manager.score.ToString();

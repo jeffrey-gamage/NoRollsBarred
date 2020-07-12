@@ -9,11 +9,9 @@ public class Plate : MonoBehaviour
     [SerializeField] private List<GridCell> gridCells; //serialized for testing
     [HideInInspector] GameManager manager;
     [HideInInspector] private float kaboomTimer;
-    [HideInInspector] private float kaboomLimit;
     private void Start()
     {
-        kaboomTimer = 0f;
-        kaboomLimit = Random.Range(120f, 300f);
+        kaboomTimer = Random.Range(60f, 180f);
         manager = GameObject.Find("GameManager").GetComponent("GameManager") as GameManager;
         Grid grid = FindObjectOfType<Grid>();
         gridCells = new List<GridCell>();
@@ -31,13 +29,20 @@ public class Plate : MonoBehaviour
     private void DestroyPiece()
     {
         // choose a random piece that's a child of this, spawn an explosion there, and destroy it.
-        //GameObject piece = 
+        kaboomTimer = Random.Range(60f, 180f);
+        GameObject piece = this.transform.GetChild(Random.Range(gridCells.Count, this.transform.childCount)).gameObject;
+        if (piece != null) {
+            Instantiate(manager.explosion, piece.transform.position, Quaternion.identity, this.transform);
+            GameObject.Find("AudioManager").GetComponent<AudioManager>().playSfx(0);
+            Destroy(piece);
+        }
+
     }
 
     private void Update()
     {
-        kaboomTimer += Time.deltaTime;
-        if (kaboomTimer > kaboomLimit) DestroyPiece();
+        kaboomTimer -= Time.deltaTime;
+        if (kaboomTimer < 0) DestroyPiece();
         foreach(GridCell cell in gridCells)
         {
             if(!cell.sushiInCell)

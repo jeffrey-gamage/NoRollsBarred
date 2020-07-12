@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public float level;
     [HideInInspector] public float score;
     [HideInInspector] private float levelTimer;
+    public GameObject explosion;
 
     void makePieces()
     {
