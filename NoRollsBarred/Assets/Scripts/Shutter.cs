@@ -22,6 +22,8 @@ public class Shutter : MonoBehaviour
     void Update()
     {
         // move at a constant rate toward the true shutter value, which changes according to GameManager updates
+        //this.transform.position = new Vector3(transform.position.x, 20-(manager.shutterValue / 5f * shutterSpeed), transform.position.z); // this changes value instantly instead of slowly shuttering
+        
         // we'll lerp it, even if it's a bit goofy.
         // how to calculate bottom of the screen???  I guess it'd be camera.y - sceneHeight/2
         this.transform.position = Vector3.Lerp(transform.position, new Vector3(conveyor.transform.position.x-0.1f, (bottomY)*manager.shutterValue/100f + topY*(1-manager.shutterValue/100f), transform.position.z), 0.05f);

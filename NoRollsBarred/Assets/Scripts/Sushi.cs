@@ -18,6 +18,7 @@ public class Sushi : MonoBehaviour
     private SushiCell[] cells;
     public bool onConveyor = false;
     public Color col;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -76,6 +77,8 @@ public class Sushi : MonoBehaviour
     internal void RejectMove()
     {
         snapEnabled = false;
+        onConveyor = true;
+        this.transform.SetParent(FindObjectOfType<Conveyor>().transform);
         gameObject.transform.position = defaultLocation.transform.position;
     }
 

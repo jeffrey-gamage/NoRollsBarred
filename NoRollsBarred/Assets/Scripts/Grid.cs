@@ -9,9 +9,10 @@ public class Grid : MonoBehaviour
     [SerializeField] int width = 9;
     [SerializeField] int height = 9;
     internal GridCell[][] cells;
-    // Start is called before the first frame update
+
     public int GetWidth() { return width; }
     public int GetHeight() { return height; }
+
     void Start()
     {
         cells = new GridCell[height][];

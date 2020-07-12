@@ -26,8 +26,7 @@ public class Conveyor : MonoBehaviour
         {
             timer = 0f;
             GameObject thing = Instantiate(manager.masterPieceList[manager.pieceList[0][0]], new Vector3(transform.localPosition.x,transform.localPosition.y+ GameObject.Find("Main Camera").transform.position.y + Camera.main.ViewportToWorldPoint(new Vector2(1f, 1f)).y + 3, transform.localPosition.z+1), Quaternion.identity, this.transform);
-            thing.GetComponent<Sushi>().onConveyor = true;
-            thing.GetComponent<Sushi>().col = manager.colors[manager.pieceList[0][1]];
+           thing.GetComponent<Sushi>().onConveyor = true;
             foreach (Transform child in thing.transform)
             {
                 // change the color of the gridSquare to the appropriate color in pieceList[0][1]

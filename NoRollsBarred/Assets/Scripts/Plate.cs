@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class Plate : MonoBehaviour
 {
-    private float plateValue = 25f; private float sameColorMulti = 2f; private float noSpillMulti = 2f;
+    private float plateValue = 10f; private float sameColorMulti = 2.5f; private float noSpillMulti = 3f;
     public Vector2Int rootCoords;
-    [SerializeField] private List<GridCell> gridCells; //serialized for testing
+    private List<GridCell> gridCells;
     [HideInInspector] GameManager manager;
-    [HideInInspector] private float kaboomTimer;
+
     private void Start()
     {
-        kaboomTimer = Random.Range(60f, 180f);
         manager = GameObject.Find("GameManager").GetComponent("GameManager") as GameManager;
         Grid grid = FindObjectOfType<Grid>();
         gridCells = new List<GridCell>();
@@ -26,23 +25,8 @@ public class Plate : MonoBehaviour
         }
     }
 
-    private void DestroyPiece()
-    {
-        // choose a random piece that's a child of this, spawn an explosion there, and destroy it.
-        kaboomTimer = Random.Range(60f, 180f);
-        GameObject piece = this.transform.GetChild(Random.Range(gridCells.Count, this.transform.childCount)).gameObject;
-        if (piece != null) {
-            Instantiate(manager.explosion, piece.transform.position, Quaternion.identity, this.transform);
-            GameObject.Find("AudioManager").GetComponent<AudioManager>().playSfx(0);
-            Destroy(piece);
-        }
-
-    }
-
     private void Update()
     {
-        kaboomTimer -= Time.deltaTime;
-        if (kaboomTimer < 0) DestroyPiece();
         foreach(GridCell cell in gridCells)
         {
             if(!cell.sushiInCell)
@@ -55,26 +39,41 @@ public class Plate : MonoBehaviour
 
     private void OnFill()
     {
-        bool[] hasColor = new bool[3]; // this'll break if we add more than 3 colors.
-        hasColor[0] = false;hasColor[1] = false;hasColor[2] = false;
-        bool noSpill = true;
-        foreach(Sushi sushi in GetComponentsInChildren<Sushi>())
+        CalculateScore();
+        manager.SetBackShutter(plateValue);
+        ClearPlate();
+    }
+
+    private void ClearPlate()
+    {
+        foreach (GridCell cell in gridCells)
         {
-            for (int i=0;i<manager.colors.Count;i++)
+            cell.SetPlate(null);
+        }
+        FindObjectOfType<PlateSpawner>().plates.Remove(this);
+        Destroy(gameObject);
+    }
+
+    private void CalculateScore()
+    {
+        bool[] hasColor = new bool[3]; // this'll break if we add more than 3 colors.
+        hasColor[0] = false; hasColor[1] = false; hasColor[2] = false;
+        bool noSpill = true;
+        foreach (Sushi sushi in GetComponentsInChildren<Sushi>())
+        {
+            for (int i = 0; i < manager.colors.Count; i++)
             {
                 if (sushi.col == manager.colors[i]) hasColor[i] = true;
             }
             // check each piece's sushiCells to see if it's on the plate.
             Grid grid = FindObjectOfType<Grid>();
-            while (noSpill) {
+            while (noSpill)
+            {
                 for (int i = 0; i < grid.GetHeight() && noSpill; i++)
                 {
                     for (int j = 0; j < grid.GetWidth() && noSpill; j++)
                     {
-                        foreach (SushiCell cell in GetComponentsInChildren<SushiCell>())
-                        {
-                            if (grid.cells[i][j].sushiInCell == cell && !gridCells.Contains(grid.cells[i][j])) noSpill = false;
-                        }
+                        if (grid.cells[i][j].sushiInCell == sushi && !gridCells.Contains(grid.cells[i][j])) noSpill = false;
                     }
                 }
                 break;
@@ -83,15 +82,5 @@ public class Plate : MonoBehaviour
         float toAdd = plateValue;
         if (noSpill) plateValue *= noSpillMulti;
         if ((hasColor[0] == false && hasColor[1] == false) || (hasColor[0] == false && hasColor[2] == false) || (hasColor[1] == false && hasColor[2] == false)) plateValue *= sameColorMulti;
-        manager.shutterValue -= plateValue;
-        manager.score += plateValue;
-        UIUpdater canvas = GameObject.Find("Canvas").GetComponent(typeof(UIUpdater)) as UIUpdater;
-        canvas.PlatePassed((hasColor[0] == false && hasColor[1] == false) || (hasColor[0] == false && hasColor[2] == false) || (hasColor[1] == false && hasColor[2] == false), noSpill);
-        foreach (GridCell cell in gridCells)
-        {
-            cell.SetPlate(null);
-        }
-        FindObjectOfType<PlateSpawner>().plates.Remove(this);
-        Destroy(gameObject);
     }
 }
