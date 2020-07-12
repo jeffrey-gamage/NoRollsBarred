@@ -51,6 +51,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isStationary: 1
   onConveyor: 0
+  col: {r: 0, g: 0, b: 0, a: 0}
 --- !u!212 &-6846768301902442903
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -114,7 +115,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.38397622, y: -0.9727397}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -125,7 +126,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.392509, y: 3.102394}
+  m_Size: {x: 2, y: 3}
   m_EdgeRadius: 0
 --- !u!1001 &3357954625515679478
 PrefabInstance:
