@@ -8,7 +8,6 @@ public class Plate : MonoBehaviour
     public Vector2Int rootCoords;
     [SerializeField] private List<GridCell> gridCells; //serialized for testing
     [HideInInspector] GameManager manager;
-
     private void Start()
     {
         manager = GameObject.Find("GameManager").GetComponent("GameManager") as GameManager;
@@ -36,15 +35,6 @@ public class Plate : MonoBehaviour
         }
         OnFill();
     }
-
-    //private void OnDestroy()
-    //{
-    //    foreach(GridCell cell in gridCells)
-    //    {
-    //        cell.SetPlate(null);
-    //    }
-    //    FindObjectOfType<PlateSpawner>().plates.Remove(this);
-    //}
 
     private void OnFill()
     {
@@ -76,7 +66,9 @@ public class Plate : MonoBehaviour
         manager.shutterValue -= plateValue;
         foreach(Sushi sushi in GetComponentsInChildren<Sushi>())
         {
-            Destroy(sushi.gameObject);
+            cell.SetPlate(null);
         }
+        FindObjectOfType<PlateSpawner>().plates.Remove(this);
+        Destroy(gameObject);
     }
 }
