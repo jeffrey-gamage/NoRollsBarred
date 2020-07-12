@@ -13,8 +13,8 @@ public class Shutter : MonoBehaviour
     {
         manager = GameObject.Find("GameManager").GetComponent("GameManager") as GameManager;
         conveyor = GameObject.Find("Conveyor");
-        bottomY = GameObject.Find("Main Camera").transform.position.y - Camera.main.ViewportToWorldPoint(new Vector2(1f, 1f)).y + this.GetComponent<SpriteRenderer>().sprite.bounds.size.y;
-        topY = GameObject.Find("Main Camera").transform.position.y + Camera.main.ViewportToWorldPoint(new Vector2(1f, 1f)).y + this.GetComponent<SpriteRenderer>().sprite.bounds.size.y;
+        bottomY = GameObject.Find("Main Camera").transform.position.y - Camera.main.ViewportToWorldPoint(new Vector2(1f, 1f)).y + this.GetComponentInChildren<SpriteRenderer>().sprite.bounds.size.y;
+        topY = GameObject.Find("Main Camera").transform.position.y + Camera.main.ViewportToWorldPoint(new Vector2(1f, 1f)).y + this.GetComponentInChildren<SpriteRenderer>().sprite.bounds.size.y;
         this.transform.position = new Vector3(conveyor.transform.position.x - 0.3f, topY, transform.position.z);
         // this 0.3f is eyeballed, change later
     }
